@@ -1,4 +1,4 @@
-## UNOFFICIAL LIBRUS API for Node.js - librus-api-rewrited-twice
+## UNOFFICIAL LIBRUS API for Node.js and SSR - librus-api-rewrited-twice
 
 *A minor project but you can star if you want :**
 ### Disclaimer :warning:
