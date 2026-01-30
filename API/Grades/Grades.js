@@ -4,9 +4,8 @@ class GradesAPI {
   }
 
   async getGrades() {
-    const headers = this.session.headers
     try {
-      const response = await this.session.client.get(`${this.session.api.url}/Grades`, { headers });
+      const response = await this.session.client.get(`${this.session.api.url}/Grades`);
       return response.data;
     } catch (error) {
       console.log("[LibrusAPI: Grades] School doesn't support this function");
@@ -15,37 +14,37 @@ class GradesAPI {
   }
 
   async getGradesAverages() {
-    const response = await this.session.client.get(`${this.session.api.url}/Grades/Averages`, { headers });
+    const response = await this.session.client.get(`${this.session.api.url}/Grades/Averages`);
     return response.data;
   }
 
   async getGradesCategoriesAverages() {
-    const response = await this.session.client.get(`${this.session.api.url}/Grades/CategoriesAverages`, { headers });
+    const response = await this.session.client.get(`${this.session.api.url}/Grades/CategoriesAverages`);
     return response.data;
   }
 
   async getGradesCategories(id) {
-    const response = await this.session.client.get(`${this.session.api.url}/Grades/Categories/${String(id)}`, { headers });
+    const response = await this.session.client.get(`${this.session.api.url}/Grades/Categories/${String(id)}`);
     return response.data;
   }
 
   async getGradesComments(id) {
-    const response = await this.session.client.get(`${this.session.api.url}/Grades/Comments/${String(id)}`, { headers });
+    const response = await this.session.client.get(`${this.session.api.url}/Grades/Comments/${String(id)}`);
     return response.data;
   }
 
   async getGradesScales() {
-    const response = await this.session.client.get(`${this.session.api.url}/Grades/Scales`, { headers });
+    const response = await this.session.client.get(`${this.session.api.url}/Grades/Scales`);
     return response.data;
   }
 
   async getGradesTypes() {
-    const response = await this.session.client.get(`${this.session.api.url}/Grades/Types`, { headers });
+    const response = await this.session.client.get(`${this.session.api.url}/Grades/Types`);
     return response.data;
   }
 
   async getGradesUnpreparednessPerSemesterAndSubject() {
-    const response = await this.session.client.get(`${this.session.api.url}/Grades/UnpreparednessPerSemesterAndSubject`, { headers });
+    const response = await this.session.client.get(`${this.session.api.url}/Grades/UnpreparednessPerSemesterAndSubject`);
     return response.data;
   }
 }
