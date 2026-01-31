@@ -17,6 +17,8 @@ const ClassAPI = require("librus-api-rewrited-twice/API/School/Class");
 const EndpointsAPI = require("librus-api-rewrited-twice/API/Other/Endpoints");
 const OtherEndpointsAPI = require("librus-api-rewrited-twice/API/Other/OtherEndpoints");
 
+const StudentAPI = require("librus-api-rewrited-twice/API/Student/Student")
+
 class LibrusAPI {
   constructor() {
     const jar = new CookieJar();
@@ -47,6 +49,7 @@ class LibrusAPI {
       schoolAPI: new SchoolAPI(this.session),
       classAPI: new ClassAPI(this.session),
       endpointsAPI: new EndpointsAPI(this.session),
+      studentAPI: new StudentAPI(this.session),
       otherEndpointsAPI: new OtherEndpointsAPI(this.session)
     };
   }
@@ -223,6 +226,14 @@ class LibrusAPI {
     return this.api.classAPI.getVirtualClasses();
   }
 
+  //Student
+  async getMe() {
+    return this.api.StudentAPI.getMe();
+  }
+  async getNotes() {
+    return this.api.StudentAPI.getNotes();
+  }
+
   /* Other */
   async getHelp() {
     return this.api.otherEndpointsAPI.getHelp();
@@ -241,9 +252,6 @@ class LibrusAPI {
   }
   async getEndpoints() {
     return this.api.endpointsAPI.getEndpoints();
-  }
-  async getMe() {
-    return this.api.endpointsAPI.getMe();
   }
   async getAPI(endpoint) {
     return this.api.endpointsAPI.getAPI(endpoint);
