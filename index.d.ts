@@ -56,6 +56,10 @@ export class LibrusAPI {
   getClasses(): Promise<any>;
   getClassesCrossedOutStudents(): Promise<any>;
   getVirtualClasses(): Promise<any>;
+  //Messages
+  getMessages(): Promise<any>;
+  getUnreadMessagesCount(): Promise<any>;
+  getMessage(id): Promise<any>;
   /* Other Endpoints */
   getHelp(): Promise<any>;
   getWhatsNew(): Promise<any>;

@@ -17,7 +17,8 @@ const ClassAPI = require("librus-api-rewrited-twice/API/School/Class");
 const EndpointsAPI = require("librus-api-rewrited-twice/API/Other/Endpoints");
 const OtherEndpointsAPI = require("librus-api-rewrited-twice/API/Other/OtherEndpoints");
 
-const StudentAPI = require("librus-api-rewrited-twice/API/Student/Student")
+const StudentAPI = require("librus-api-rewrited-twice/API/Student/Student");
+const MessagesAPI = require('./API/Messages/Messages');
 
 class LibrusAPI {
   constructor() {
@@ -50,6 +51,7 @@ class LibrusAPI {
       classAPI: new ClassAPI(this.session),
       endpointsAPI: new EndpointsAPI(this.session),
       studentAPI: new StudentAPI(this.session),
+      messagesAPI: new MessagesAPI(this.session),
       otherEndpointsAPI: new OtherEndpointsAPI(this.session)
     };
   }
@@ -232,6 +234,19 @@ class LibrusAPI {
   }
   async getNotes() {
     return this.api.StudentAPI.getNotes();
+  }
+
+  //Messages
+  async getMessages() {
+    return this.api.MessagesAPI.getMessages();
+  }
+
+  async getUnreadMessagesCount() {
+    return this.api.MessagesAPI.getUnreadMessagesCount();
+  }
+
+  async getMessage(id = "") {
+    return this.api.MessagesAPI.getUnreadMessagesCount();
   }
 
   /* Other */
