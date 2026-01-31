@@ -48,6 +48,15 @@ class OtherEndpointsAPI{
           throw error;
         }
       }
+      async getSchoolTrips() {
+        try {
+          const response = await this.session.client.get(`${this.session.api.url}/SchoolTrips`);
+          return response.data;
+        } catch (error) {
+          console.error("[LibrusAPI: WhatsNew] School doesn't support this function", error);
+          throw error;
+        }
+      }
 }
 
 module.exports = OtherEndpointsAPI;
