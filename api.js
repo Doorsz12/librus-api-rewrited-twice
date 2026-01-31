@@ -230,23 +230,23 @@ class LibrusAPI {
 
   //Student
   async getMe() {
-    return this.api.StudentAPI.getMe();
+    return this.api.studentAPI.getMe();
   }
   async getNotes() {
-    return this.api.StudentAPI.getNotes();
+    return this.api.studentAPI.getNotes();
   }
 
   //Messages
   async getMessages() {
-    return this.api.MessagesAPI.getMessages();
+    return this.api.messagesAPI.getMessages();
   }
 
   async getUnreadMessagesCount() {
-    return this.api.MessagesAPI.getUnreadMessagesCount();
+    return this.api.messagesAPI.getUnreadMessagesCount();
   }
 
   async getMessage(id = "") {
-    return this.api.MessagesAPI.getUnreadMessagesCount();
+    return this.api.messagesAPI.getUnreadMessagesCount();
   }
 
   /* Other */
