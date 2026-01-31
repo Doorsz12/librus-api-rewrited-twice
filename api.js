@@ -94,7 +94,7 @@ class LibrusAPI {
 
   /* Point Grades API */
   async getPointGrades() {
-    return Pointthis.api.gradesAPI.getPointGrades();
+    return this.api.pointGradesAPI.getPointGrades();
   }
 
   async getPointGradesCategories() {
