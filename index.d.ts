@@ -1,18 +1,93 @@
+interface Resource {
+  Id: number;
+  Url: string;
+}
+
+interface Type {
+  Name: string;
+  Value: string;
+}
+
+interface Grade {
+  Id: number;
+  Lesson: Resource;
+  Subject: Resource;
+  Student: Resource;
+  Category: Resource;
+  AddedBy: Resource;
+  Grade: string;
+  Date: string;
+  AddDate: string;
+  Semester: number;
+  IsConstituent: boolean;
+  IsSemester: boolean;
+  IsSemesterProposition: boolean;
+  IsFinal: boolean;
+  IsFinalProposition: boolean;
+}
+
+interface GradeCategory {
+  Id: number;
+  Color: Resource;
+  Name: string;
+  AdultsExtramural: boolean;
+  AdultsDaily: boolean;
+  Standard: boolean;
+  IsReadOnly: string;
+  CountToTheAverage: boolean;
+  Weight: number;
+  BlockAnyGrades: boolean;
+  ObligationToPerform: boolean;
+}
+
+interface GradeComment {
+  Id: number;
+  AddedBy: Resource;
+  Grade: Resource;
+  Text: string;
+}
+
+interface Lesson {
+  Id: number;
+  Teacher: Resource;
+  Subject: Resource;
+}
+
+interface GradesCommentsResponse {
+  Comment: GradeComment[];
+}
+
+interface GradesCategoriesResponse {
+  Categories: GradeCategory[];
+}
+
+interface GradesResponse {
+  Grades: Grade[];
+}
+
+interface GradesTypesResponse {
+    Types: Type[];
+}
+
+interface LessonsResponse {
+  Lessons: Lesson[];
+}
+
 export class LibrusAPI {
   constructor();
-  /* Authentication */
+
   activateApiAccess(): Promise<any>;
   mkToken(login: string, pass: string): Promise<any>;
   /* Grades API */
-  getGrades(): Promise<any>;
-  getGradesAverages(): Promise<any>;
-  getGradesCategoriesAverages(): Promise<any>;
-  getGradesCategories(id?: any): Promise<any>;
-  getGradesComments(id?: any): Promise<any>;
-  getGradesScales(): Promise<any>;
-  getGradesTypes(): Promise<any>;
-  getGradesUnpreparednessPerSemesterAndSubject(): Promise<any>;
-  /* Point Grades API */
+  getGrades(): Promise<GradesResponse>;
+  getGradesAverages(): Promise<any>; //idk jak to dziala mam wylaczone xd
+  getGradesCategoriesAverages(): Promise<any>; //tak samo
+  getGradesCategories(id?: any): Promise<GradesCategoriesResponse>;
+  getGradesComments(id?: any): Promise<GradesCommentsResponse>;
+  getGradesScales(): Promise<any>; //acces is denied
+  getGradesTypes(): Promise<GradesTypesResponse>;
+  getGradesUnpreparednessPerSemesterAndSubject(): Promise<any>; //whar
+  /* Point Grades API */ //to w ogole nie dziala po co to jest tf
   getPointGrades(): Promise<any>;
   getPointGradesCategories(): Promise<any>;
   getPointGradesDictionaries(): Promise<any>;
@@ -27,7 +102,7 @@ export class LibrusAPI {
   getBehaviourGradesPointsComments(): Promise<any>;
   getBehaviourGradesSystemProposal(): Promise<any>;
   /* Lessons API */
-  getLessons(id?: string): Promise<any>;
+  getLessons(id?: string): Promise<LessonsResponse>;
   getAttendances(): Promise<any>;
   getAttendancesTypes(): Promise<any>;
   getAttendancesLessonsStatistics(id?: any): Promise<any>;
