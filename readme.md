@@ -6,7 +6,7 @@ Code ported from Python: https://github.com/dani3l0/librusik/
 And rewrited from: https://github.com/kbaraniak/librus-api-rewrited/
 
 ### Usage
-`no npm im sorry :(`
+`npm i librus-api-rewrited-twice`
 
 `git clone https://github.com/Doorsz12/librus-api-rewrited-twice`
 
